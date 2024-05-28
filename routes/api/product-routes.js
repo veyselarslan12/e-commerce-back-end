@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
       ]
     })
     res.json(products)
-    
+
   } catch(err) {
     console.log(err)
     res.status(500).send('Error getting products.')
@@ -32,8 +32,26 @@ router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   // findByPk()
-});
+  const { id } =req.params
+  try {
+    const product = await Product.findByPk(id, {
+      include: [
+        {
+          model: Category
+        },
+        {
+          model: Tag
+        }
+      ]
+    })
+    res.json(product)
 
+  } catch(err) {
+    console.log(err)
+    res.status(500).send('Error getting product.')
+  }
+});
+// TODO: Ask this part to teacher!!!
 // create new product
 router.post('/', (req, res) => {
   /* req.body should look like this...
@@ -65,7 +83,7 @@ router.post('/', (req, res) => {
       res.status(400).json(err);
     });
 });
-
+// TODO: Ask this part to teacher!!!
 // update product
 router.put('/:id', (req, res) => {
   // update product data
@@ -113,6 +131,16 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
+  // destro()
+  const { id } = req.params
+  try {
+    const deleteProduct = await Product.destroy(id)
+    res.json(deleteProduct)
+    
+  } catch(err) {
+    console.log(err)
+    res.status(500).send('Error deleting product.')
+  }
 });
 
 module.exports = router;
