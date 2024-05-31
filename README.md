@@ -24,9 +24,11 @@
 * Dotenv
 * PostgreSQL
 
-## Application Page
-* ![]()
+## Insomnia Testing
+* ![test-products](./images/insomnia-test-products.png)
+* ![test-tags](./images/insomnia-test-tags.png)
+* ![test-categories](./images/insomnia-test-categories.png)
 
 ## Links
 * [Github Repository](https://github.com/veyselarslan12/e-commerce-back-end)
-* [Example Test Video Link]()
+* [Example Test Video Link](https://drive.google.com/file/d/1LapBHDG8ZZOpc7q_K_Ji-tFh_EfB2IR3/view)
